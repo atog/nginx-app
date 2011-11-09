@@ -13,16 +13,16 @@ Why
 
 Because pow is a wonderful idea, but too slow in my expercience.
 
-BIND and local dev domain on port 80
-------------------------------------
+BIND and local dev domain
+-------------------------
 
 Special thanks to [Jesse Dearing](http://jessedearing.com/nodes/9)
 All steps listed below:
 
 ```
-sudo -s
-rndc-confgen > /etc/rndc.conf
-head -n5 /etc/rndc.conf |tail -n4 > /etc/rndc.key
+$ sudo -s
+$ rndc-confgen > /etc/rndc.conf
+$ head -n5 /etc/rndc.conf |tail -n4 > /etc/rndc.key
 ```
 
 create `/etc/named.conf`
@@ -53,9 +53,10 @@ localhost.dev. 60 IN A 127.0.0.1
 *.dev. 60 IN A 127.0.0.1
 ```
 
-`launchctl load -w /System/Library/LaunchDaemons/org.isc.named.plist`
-
-`named`
+```
+$ launchctl load -w /System/Library/LaunchDaemons/org.isc.named.plist
+$ named
+```
 
 create `/etc/resolver/dev`
 
