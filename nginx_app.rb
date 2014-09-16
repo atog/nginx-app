@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 nginx_sites_path = ARGV[0] || "/usr/local/etc/nginx/sites"
-name = "#{Dir.pwd.split(File::SEPARATOR).last}"
+name = Dir.pwd.split(File::SEPARATOR).last
 conf = File.join(nginx_sites_path, "#{name}.dev.conf")
 File.open(conf, "w+") do |f|
   f.puts(DATA.read % [name, name, name, Dir.pwd, name])
