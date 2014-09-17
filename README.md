@@ -49,7 +49,7 @@ A nginx server conf (app.dev) will be created which proxies all app requests to 
 
 Run `sudo nginx -s reload` to load the new config.
 
-Next, one starts the app with `foreman start` and point the browser to `http://app.dev`.
+Next, one starts the app with `foreman start -f Procfile.local` and point the browser to `http://app.dev`.
 
 Author
 ------

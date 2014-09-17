@@ -6,7 +6,7 @@ conf = File.join(nginx_sites_path, "#{name}.dev.conf")
 File.open(conf, "w+") do |f|
   f.puts(DATA.read % [name, name, name, Dir.pwd, name])
 end
-File.open(File.join(Dir.pwd, "Procfile"), "w+") do |f|
+File.open(File.join(Dir.pwd, "Procfile.local"), "w+") do |f|
   f.puts "web: bundle exec puma -b unix:/tmp/#{name}.sock"
 end
 
