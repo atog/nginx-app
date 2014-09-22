@@ -18,8 +18,10 @@ Install nginx / dnsmasq
 
 ```
 brew install nginx
-sudo ln -sfv /usr/local/opt/nginx/*.plist /Library/LaunchDaemons
+sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemons
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+
+mkdir /usr/local/etc/nginx/sites/
 ```
 
 Add the following to `/urs/local/etc/nginx/nginx.conf`
@@ -34,11 +36,15 @@ brew install dnsmasq
 
 echo 'address=/.dev/127.0.0.1' > /usr/local/etc/dnsmasq.conf
 
-sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+```
 
+Create a file /etc/resolver/dev containing:
 
+```
+nameserver 127.0.0.1
+```
 
 Usage
 -----
