@@ -24,7 +24,7 @@ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 mkdir /usr/local/etc/nginx/sites/
 ```
 
-Add the following to `/urs/local/etc/nginx/nginx.conf`
+Add the following to `/usr/local/etc/nginx/nginx.conf`
 
 ```
 # Load all vhosts !
